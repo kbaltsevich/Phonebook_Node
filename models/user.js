@@ -14,6 +14,7 @@ module.exports = class User{
     }
     save(){
         users.push(this)
+        fs.writeFileSync(filePath, JSON.stringify(users))
     }
     static getAll(){
         return users;

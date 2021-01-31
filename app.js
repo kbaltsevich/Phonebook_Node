@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const userRouter = require('./routes/userRouter')
-const jsonParser = express.json();
+
 
 
 app.use('/api/users', userRouter)
