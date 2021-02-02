@@ -6,15 +6,21 @@ const getUsers = (req, res) => {
 }
 
 const createUser = (req, res) => {
-    console.log(req.body)
     const nUser = req.body.user;
-    console.log(nUser)
     const user = new User(nUser.name, nUser.mobile, nUser.phone, nUser.job) 
     user.save()
     res.send(`${user.name} created`)
 }
 
+const deleteUser = (req, res) => {
+    const dUser = new User (req.body.user.name,req.body.user.mobile, req.body.user.phone, req.body.user.job, req.body.user._id)
+    console.log(dUser)
+    dUser.delete()
+    res.send(`${dUser.name} was deleted`)        
+}
+
 module.exports = {
     getUsers,
-    createUser
+    createUser,
+    deleteUser
 }
