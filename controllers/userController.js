@@ -24,10 +24,15 @@ const updatrUser = (req, res) => {
     res.send(`${pUser.name} was put`)
 }
 
+const getUserId = (req, res) => {
+    const user = User.getAll().find(item => item._id == req.params.id)
+    res.send(user)
+}
 
 module.exports = {
     getUsers,
     createUser,
     deleteUser,
-    updatrUser
+    updatrUser,
+    getUserId
 }
