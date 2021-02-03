@@ -1,10 +1,11 @@
 const express = require("express");
 const userRouter = express.Router();
 const jsonParser = express.json();
-const {getUsers, createUser, deleteUser} = require('../controllers/userController')
+const {getUsers, createUser, deleteUser, updatrUser} = require('../controllers/userController')
 
 userRouter.get('/', getUsers)
-userRouter.post('/create', jsonParser, createUser)
-userRouter.delete('/delete-user', jsonParser, deleteUser)
+userRouter.post('/', jsonParser, createUser)
+userRouter.delete('/', jsonParser, deleteUser)
+userRouter.put('/', jsonParser, updatrUser)
 
 module.exports = userRouter;

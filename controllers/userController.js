@@ -13,14 +13,21 @@ const createUser = (req, res) => {
 }
 
 const deleteUser = (req, res) => {
-    const dUser = new User (req.body.user.name,req.body.user.mobile, req.body.user.phone, req.body.user.job, req.body.user._id)
-    console.log(dUser)
+    const dUser = new User(req.body.user.name,req.body.user.mobile, req.body.user.phone, req.body.user.job, req.body.user._id)
     dUser.delete()
     res.send(`${dUser.name} was deleted`)        
 }
 
+const updatrUser = (req, res) => {
+    const pUser = new User (req.body.user.name,req.body.user.mobile, req.body.user.phone, req.body.user.job, req.body.user._id)
+    pUser.put()
+    res.send(`${pUser.name} was put`)
+}
+
+
 module.exports = {
     getUsers,
     createUser,
-    deleteUser
+    deleteUser,
+    updatrUser
 }
