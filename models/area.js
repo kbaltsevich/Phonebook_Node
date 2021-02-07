@@ -15,22 +15,19 @@ module.exports = class Area {
     areas.push(this)
     fs.writeFileSync(`${filePath}`, JSON.stringify(this));
   }
-  getArea(){
-      return this
-  }
   delete() {
     const dArea = areas.filter((area) => area._id != this._id);
     fs.writeFileSync(filePath, JSON.stringify(dUsers));
   }
-  put() {
+  update() {
     const index = areas.findIndex((item) => item._id == this._id);
     areas[index] = this;
     fs.writeFileSync(filePath, JSON.stringify(areas));
   }
   static getAll() {
-    return users;
+    return areas;
   }
-  clearUsers() {
+  clearAreas() {
     fs.writeFileSync(filePath, JSON.stringify([]));
   }
 };
