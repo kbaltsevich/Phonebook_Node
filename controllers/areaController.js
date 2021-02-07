@@ -13,6 +13,7 @@ const getAllAreas = (req, res) => {
   res.send(areas)  
 };
 
+
 module.exports = {
   createArea,
   getAllAreas,
