@@ -16,22 +16,22 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.getUsers(), 60000);
+    // this.timerID = setInterval(() => this.getUsers(), 60000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerID);
+    // clearInterval(this.timerID);
   }
 
   createUser(user) {
-    axios.post("http://localhost:5000/api/users", user)
+    axios.post("http://192.168.43.125:5000/api/users", user)
       .then(res => {console.log(user); return this.getUsers()})
       .catch(err=>console.log(err))
   }
 
   getUsers() {
     axios
-      .get("http://localhost:5000/api/users")
+      .get("http://192.168.43.125:5000/api/users")
       .then((response) => {
         this.setState({ users: response.data });
       })
