@@ -6,6 +6,7 @@ const getUsers = (req, res) => {
 };
 
 const createUser = (req, res) => {
+  console.log(res)
   const nUser = req.body.user;
   const user = new User(nUser.name, nUser.mobile, nUser.phone, nUser.job);
   user.save();

@@ -5,6 +5,7 @@ import Title from "./components/title";
 import Clock from "./components/Clock";
 import Users from "./components/Users/Users";
 import Nav from "./components/nav/Nav";
+import Form from "./components/Form";
 
 const axios = require("axios");
 
@@ -20,6 +21,12 @@ class App extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.timerID);
+  }
+
+  createUser(user) {
+    axios.post("http://localhost:5000/api/users", user)
+      .then(res => {console.log(user); return this.getUsers()})
+      .catch(err=>console.log(err))
   }
 
   getUsers() {
@@ -39,6 +46,7 @@ class App extends React.Component {
         <main className="container">
           <Title title="Справочник" />
           <Clock />
+          <Form createUser={this.createUser}/>
           <Users className="container" users={this.state.users} />
         </main>
       </div>
